@@ -51,7 +51,7 @@ app$callback(
   output('plot-area', 'figure'),
   list(input('year_widget', 'value'), input('month_widget', 'value')),
   function(int_year, month) {
-    df <- colony |>
+    df <- colony %>%
       filter(year == int_year, months == month)
     target_df <- left_join(state_info, df, by='state')
     target_df[is.na(target_df)] <- 0
@@ -61,12 +61,12 @@ app$callback(
       lakecolor = toRGB('white')
     )
 
-    plot_ly(target_df) |>
-      layout(geo = g) |>
+    plot_ly(target_df) %>%
+      layout(geo = g) %>%
       add_trace(type = "choropleth", locationmode = 'USA-states',
                 locations = ~abbr,
                 z = ~colony_lost_pct,
-                color = ~colony_lost_pct, autocolorscale = TRUE) |>
+                color = ~colony_lost_pct, autocolorscale = TRUE) %>%
       add_trace(type = "scattergeo", locationmode = 'USA-states',
                 locations = ~abbr, text = ~colony_lost_pct,
                 mode = "text",
