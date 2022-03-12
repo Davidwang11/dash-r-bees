@@ -36,7 +36,7 @@ app$layout(
               dccDropdown(
                 id = 'month_widget',
                 options = unique(colony$months) %>% purrr::map(function(col) list(label = col, value = col)),
-                value = 'January-March')
+                value = 'January-March'
               )
             )
           ),
