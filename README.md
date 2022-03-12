@@ -13,3 +13,4 @@ Steps to reproduce:
 5. Wait ~15 min for the build to finish.
 6. `heroku ps:scale web=1`
 7. Navigate to `https://you-heroku-site.herokuapp.com` in your browser
+8. https://dsci532ia2tianweiwang.herokuapp.com/
